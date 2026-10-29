@@ -1,0 +1,47 @@
+name: Order a fix or audit
+description: Order Quick Fix (49 USDC), Launch Check (149 USDC) or Fix & List (449 USDC). Pay in USDC on Base only.
+title: "[Order] "
+labels: ["order"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Payment:** USDC on **Base network only** to `0x88d4091208FB38C8531BD8Feeaa32E8B3f3D6FD4`.
+        USDC sent on any other network cannot be recovered. You can open this issue first and add the tx hash later.
+        Quick Fix is refunded if not fixed. Please do not post secrets, API keys or private keys here: this repository is public.
+  - type: dropdown
+    id: offer
+    attributes:
+      label: Offer
+      options:
+        - Quick Fix - 49 USDC (one issue, 2h, refunded if not fixed)
+        - Launch Check - 149 USDC (full audit report)
+        - Fix & List - 449 USDC (audit + fixes + listings)
+    validations:
+      required: true
+  - type: input
+    id: endpoint
+    attributes:
+      label: Endpoint URL
+      description: The x402 route (or base URL) to check.
+      placeholder: https://api.example.com/v1/paid-route
+    validations:
+      required: true
+  - type: input
+    id: contact
+    attributes:
+      label: Contact handle
+      description: Where we can reach you (X, Telegram, Discord or GitHub). We also reply in this issue.
+      placeholder: "@yourhandle on Telegram"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong? (optional)
+      description: Symptoms, error codes, where it is listed.
+  - type: input
+    id: txhash
+    attributes:
+      label: Payment tx hash on Base (optional now, required before work starts)
+      placeholder: 0x...
