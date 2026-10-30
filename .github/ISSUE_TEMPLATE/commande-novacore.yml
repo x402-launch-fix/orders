@@ -1,0 +1,37 @@
+name: Commande NovaCore AI (Peppol ou NIS2)
+description: Mise en route Peppol (149 €, 167 USDC) ou check NIS2 express (290 €, 325 USDC). Paiement en USDC sur Base uniquement.
+title: "[Commande] "
+labels: ["order"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Paiement :** USDC sur le **réseau Base uniquement** à `0x88d4091208FB38C8531BD8Feeaa32E8B3f3D6FD4`.
+        Des USDC envoyés sur un autre réseau ne peuvent pas être récupérés. Vous pouvez ouvrir cette demande d'abord et ajouter la référence de transaction ensuite.
+        **Ce dépôt est public :** n'indiquez ni mot de passe, ni code, ni donnée sensible. Un pseudo ou un email générique suffit pour vous recontacter.
+  - type: dropdown
+    id: offre
+    attributes:
+      label: Forfait
+      options:
+        - Mise en route Peppol - 149 € (167 USDC)
+        - Check NIS2 et cyber express - 290 € (325 USDC)
+    validations:
+      required: true
+  - type: input
+    id: contact
+    attributes:
+      label: Contact
+      description: Où vous recontacter (email générique, Telegram, X…). Nous répondons aussi dans cette demande.
+    validations:
+      required: true
+  - type: input
+    id: tx
+    attributes:
+      label: Référence de transaction (optionnel)
+      placeholder: 0x...
+  - type: textarea
+    id: details
+    attributes:
+      label: Votre situation en 2 lignes
+      description: Peppol, votre outil de facturation actuel. NIS2, votre secteur et votre nombre de personnes (approximatif).
